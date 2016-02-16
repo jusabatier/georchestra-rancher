@@ -7,3 +7,5 @@ if [ -e "/var/lib/georchestra/cas.war" ] ; then
   cp /var/lib/georchestra/cas.war /usr/local/tomcat/webapps
   chmod a+r /usr/local/tomcat/webapps/*.war
 fi
+
+exec "$@"
