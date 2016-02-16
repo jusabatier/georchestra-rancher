@@ -8,4 +8,5 @@ if [ -e "/var/lib/georchestra/cas.war" ] ; then
   chmod a+r /usr/local/tomcat/webapps/*.war
 fi
 
+echo "$@"
 exec "$@"
