@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -v
 
 if [ -e "/var/lib/georchestra/cas.war" ] ; then
   rm -rf /usr/local/tomcat/webapps/*
