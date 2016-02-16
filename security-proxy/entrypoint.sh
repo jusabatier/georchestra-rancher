@@ -8,4 +8,4 @@ if [ -e "/var/lib/georchestra/ROOT.war" ] ; then
   chmod a+r /usr/local/tomcat/webapps/*.war
 fi
 
-exec "$@"
+/usr/local/tomcat/bin/catalina.sh run
