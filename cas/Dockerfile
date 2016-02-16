@@ -6,8 +6,4 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 
 EXPOSE 8080
 
-VOLUME  ["/imports"]
-
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+VOLUME  ["/etc/georchestra","/usr/local/tomcat/webapps","/usr/local/tomcat/logs"]
