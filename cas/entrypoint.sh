@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -v
+set -e
 
 if [ -e "/var/lib/georchestra/cas.war" ] ; then
   rm -rf /usr/local/tomcat/webapps/*
@@ -8,5 +8,4 @@ if [ -e "/var/lib/georchestra/cas.war" ] ; then
   chmod a+r /usr/local/tomcat/webapps/*.war
 fi
 
-echo "$@"
-exec "$@"
+/usr/local/tomcat/bin/catalina.sh run
