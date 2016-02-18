@@ -8,8 +8,8 @@ if [ -e "/var/lib/georchestra/cas.war" ] ; then
   chmod a+r /usr/local/tomcat/webapps/*.war
 fi
 
-if [ -e "/var/lib/georchestra/tc-cadastrapp/context.xml" ] ; then
-  cp /var/lib/georchestra/tc-cadastrapp/context.xml /usr/local/tomcat/conf/
+if [ -e "/etc/georchestra/cadastrapp/context.xml" ] ; then
+  cp /etc/georchestra/cadastrapp/context.xml /usr/local/tomcat/conf/
   chmod a+r /usr/local/tomcat/conf/context.xml
 fi
 
