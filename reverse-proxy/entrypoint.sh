@@ -7,7 +7,7 @@ if [ -e "/etc/georchestra/reverse-proxy/nginx.conf" ] ; then
   chmod a+r /etc/nginx/conf.d/default.conf
 fi
 
-if [ -d "/etc/georchestra/reverse-proxy/georchestra" ] ; then
+if [ -d "/etc/georchestra/reverse-proxy/georchestra" ] && [ ! -e /usr/share/nginx/georchestra ] ; then
   ln -s /etc/georchestra/reverse-proxy/georchestra /usr/share/nginx/georchestra
 fi
 
