@@ -12,4 +12,8 @@ if [ -e "/var/lib/georchestra/geoserver.war" ] ; then
   cp /usr/share/java/gdal.jar /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gdal.jar
 fi
 
+if [ -e "/etc/georchestra/geoserver/context.xml" ] ; then
+  cp /etc/georchestra/geoserver/context.xml /usr/local/tomcat/conf/context.xml
+fi
+
 /usr/local/tomcat/bin/catalina.sh run
