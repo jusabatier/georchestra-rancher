@@ -24,7 +24,7 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
   F3A04C595DB5B6A5F1ECA43E3B7BBB100D811BBE \
   F7DA48BB64BCB84ECBA7EE6935CD23C10D498E23
 ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.0.30
+ENV TOMCAT_VERSION 8.0.32
 ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 RUN set -x \
   && wget "$TOMCAT_TGZ_URL" -O tomcat.tar.gz \
