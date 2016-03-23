@@ -27,8 +27,6 @@ ENV TOMCAT_MAJOR 8
 ENV TOMCAT_VERSION 8.0.32
 ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 ADD "$TOMCAT_TGZ_URL" /tmp/tomcat.tar.gz
-ADD "$TOMCAT_TGZ_URL" /tmp/tomcat.tar.gz.asc
-RUN gpg --verify /tmp/tomcat.tar.gz.asc
 RUN tar -xvf /tmp/tomcat.tar.gz -C /tmp
 RUN mv /tmp/apache-tomcat-$TOMCAT_VERSION /var/lib/tomcat8
 RUN rm /var/lib/tomcat8/bin/*.bat
