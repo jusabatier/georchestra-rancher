@@ -29,7 +29,7 @@ ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOM
 ADD "$TOMCAT_TGZ_URL" /tmp/tomcat.tar.gz
 RUN tar -xvf /tmp/tomcat.tar.gz -C /tmp
 RUN mv /tmp/apache-tomcat-$TOMCAT_VERSION /usr/local/tomcat
-RUN rm /var/lib/tomcat8/bin/*.bat
+RUN rm /usr/local/tomcat/bin/*.bat
 RUN rm /tmp/tomcat.tar.gz*
 
 RUN echo "deb http://ftp.fr.debian.org/debian jessie contrib non-free" >> /etc/apt/sources.list
