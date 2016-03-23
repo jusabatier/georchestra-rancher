@@ -1,14 +1,9 @@
 FROM debian:jessie
 
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes software-properties-common
-RUN add-apt-repository -y ppa:webupd8team/java
-RUN apt-get update
-RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes oracle-java8-installer
-RUN DEBIAN_FRONTEND=noninteractive apt-get install oracle-java8-set-default
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" > /etc/apt/sources.list.d/webupd8team-java.list
+RUN echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list.d/webupd8team-java.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+RUN apt-get update && apt-get install -y oracle-java8-installer
 
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
