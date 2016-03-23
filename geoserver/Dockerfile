@@ -26,13 +26,13 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
 ENV TOMCAT_MAJOR 8
 ENV TOMCAT_VERSION 8.0.32
 ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
-RUN set -x \
-  && wget "$TOMCAT_TGZ_URL" -O tomcat.tar.gz \
-  && wget "$TOMCAT_TGZ_URL.asc" -O tomcat.tar.gz.asc \
-  && gpg --verify tomcat.tar.gz.asc \
-  && tar -xvf tomcat.tar.gz --strip-components=1 \
-  && rm bin/*.bat \
-  && rm tomcat.tar.gz*
+ADD "$TOMCAT_TGZ_URL" /tmp/tomcat.tar.gz
+ADD "$TOMCAT_TGZ_URL" /tmp/tomcat.tar.gz.asc
+RUN gpg --verify /tmp/tomcat.tar.gz.asc
+RUN tar -xvf /tmp/tomcat.tar.gz -C /tmp
+RUN mv /tmp/apache-tomcat-$TOMCAT_VERSION /var/lib/tomcat8
+RUN rm /var/lib/tomcat8/bin/*.bat
+RUN rm /tmp/tomcat.tar.gz*
 
 RUN echo "deb http://ftp.fr.debian.org/debian jessie contrib non-free" >> /etc/apt/sources.list
 RUN echo "deb http://security.debian.org/ jessie/updates contrib non-free" >> /etc/apt/sources.list
