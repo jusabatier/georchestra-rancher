@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y oracle-java8-installer
 
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
-RUN mkdir -p "$CATALINA_HOME"
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
   05AB33110949707C93A279E3D3EFE6B686867BA6 \
   07E48665A34DCAFAE522E5E6266191C37C037D42 \
