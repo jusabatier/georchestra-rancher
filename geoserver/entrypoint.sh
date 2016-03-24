@@ -16,4 +16,8 @@ if [ -e "/etc/georchestra/geoserver/context.xml" ] ; then
   cp /etc/georchestra/geoserver/context.xml /usr/local/tomcat/conf/context.xml
 fi
 
+if [ -e "/etc/georchestra/geoserver/server.xml" ] ; then
+  cp /etc/georchestra/geoserver/server.xml /usr/local/tomcat/conf/server.xml
+fi
+
 /usr/local/tomcat/bin/catalina.sh run
